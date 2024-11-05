@@ -1,156 +1,225 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link rel="stylesheet" href="tn.css">
+    <title>Shoes Store</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-  line-height: 1.6;
-  font-size: 16px;
-  color: #333;
-  background-color: #f4f4f4;
-  padding: 20px;
+body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
 }
 
-header {
-  text-align: center;
-  padding: 50px 0;
-  background-color: #007bff;
-  color: #fff;
+nav{
+    width: 100%;
+    height: 10vh;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 20px 0;
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav ul li {
-  margin: 0 15px;
+.container .logo img{
+    margin-left: 20px;
+    width: 100px;
+    filter: drop-shadow(2px 2px 2px white);
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
+.container .links a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    margin: 0 20px;
+    transition: 0.3s linear;
 }
 
-section {
-  margin: 40px 0;
+.links a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    background-color: #f74f10;
+    height: 3.5px;
+    transition: 0.3s linear;
 }
 
-#about, #projects, #contact {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.links a:hover::before,
+.links a:hover{
+    color: #f74f10;
+    width: 100%;
 }
 
-.project {
-  margin-bottom: 20px;
+.container .search i{
+    color: white;
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin-right: 20px;
 }
 
-.project h3 {
-  margin-bottom: 10px;
+/* Section Starts */
+
+section{
+    width: 100%;
+    height: 90vh;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+section .content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
 }
 
-form label {
-  margin-bottom: 5px;
+.content .main-content{
+    color: white;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-form input, form textarea, form button {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.main-content h1{
+    font-size: clamp(2rem, 1rem + 5vw, 4rem);
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.main-content h2{
+    color: #f74f10;
+    font-size: clamp(2rem, 1rem + 5vw, 3.5rem);
 }
 
-button:hover {
-  background-color: #0056b3;
+.main-content p{
+    margin-top: 10px;
+    color: #635e5c;
 }
 
-footer {
-  text-align: center;
-  margin-top: 40px;
-  color: #777;
+.main-content .order{
+    display: flex;
+    margin: 20px 10px;
+    width: 100%;
+    justify-content: space-around;
+    min-height: 7vh;
 }
 
-  </style>
+.order h3{
+    font-size: 1.8rem;
+}
+
+.order button {
+    min-width: 50%;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: linear-gradient(to bottom right, #f74f10 40%, #8a3313) ;
+    color: white;
+    font-weight: 700;
+    padding: 0 2px;
+    font-size: clamp(0.6rem, 1rem 5vw, 3rem);
+    transition: 0.1s linear;
+}
+
+.order button:hover{
+    box-shadow:  0 0 30px #f74f10;
+    background: linear-gradient(to bottom right, #8a3313 ,  #f74f10 40%) ;
+}
+
+.content .image img{
+    max-width: 450px;
+    width: 100%;
+    margin-right: 100px;
+    transform: rotate(40deg) translateX(900px);
+    filter: drop-shadow(-10px -10px 200px #f74f10);
+}
+
+@media (max-width:800px){
+    .content{
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .main-content{
+        margin: 0 10px;
+    }
+}
+
+@media (min-width:884px){
+    .content .image img{
+        min-width: 500px;
+    }
+}
+
+@media (max-width:440px){
+    .links{
+        display: none;
+    }
+
+    .content .image img{
+        width: 100%;
+        margin-right: none;
+    }
+}
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Bienvenue sur mon Portfolio</h1>
-    <p>Je suis youssef hdilisse, Développeur Web</p>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="#about">À Propos</a></li>
-      <li><a href="#projects">Projets</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section id="about">
-    <h2>À Propos de Moi</h2>
-    <p>Je suis un développeur passionné par la création de sites web modernes et responsives.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Mes Projets</h2>
-    <div class="project">
-      <h3>Projet 1</h3>
-      <p>Description de votre projet.</p>
-      <a href="#">Voir le projet</a>
-    </div>
-    <div class="project">
-      <h3>Projet 2</h3>
-      <p>Description de votre projet.</p>
-      <a href="#">Voir le projet</a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contactez-moi</h2>
-    <form action="#">
-      <label for="name">Nom :</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Message :</label>
-      <textarea id="message" name="message" required></textarea>
-
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2024 Mon Portfolio | Conçu par [Votre Nom]</p>
-  </footer>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="NikeLogoPNGImage.png" alt="">
+            </div>
+            <div class="links">
+                <a href="collection.html">MEN</a>
+                <a href="">WOMEN</a>
+                <a href="">KIDS</a>
+                <a href="">CUSTOMIZE</a>
+                <a href="">COLLECTIONS</a>
+            </div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="content">
+            <div class="main-content">
+                <h1 data-aos="fade-right" data-aos-duration="2000">Nike</h1>
+                <h2 data-aos="fade-left" data-aos-duration="2000" data-aos-delay="200">Air Max Plus</h2>
+                <h4 data-aos="fade-right" data-aos-duration="2000" data-aos-delay="400">MAKE THE GROUND SHAKE</h4>
+                <p data-aos="flip-down" data-aos-duration="2000" data-aos-delay="600">Let the attitude have the edge in your Nike Air Max Plus, a Tuned Air experience that offers premium stability and unbelievable cushioning Featuring the OG's wacy design lines, TPU accents and airy mesh on the upper. It celebrates definat style.</p>
+                <div class="order">
+                    <h3 data-aos="zoom-in-right" data-aos-duration="2000" data-aos-delay="800">$249.99</h3>
+                    <button data-aos="zoom-in-left" data-aos-duration="2000" data-aos-delay="800">PRE-ORDER NOW</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="shoes.png" data-aos="zoom-in" data-aos-duration="2000">
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset:1
+      });
+    </script>
 </body>
 </html>
